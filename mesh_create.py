@@ -55,7 +55,8 @@ T_cone = [
     [0,    0,    0,    1]]
 
 print(np.dot(T_cone,[0.44,0,0,1]))
-#transform
+
+#transform for cylinder
 T_first = np.eye(4)
 T_first[:4,:4] =[[0,0,1,0],
                  [0,1,0,0],
@@ -98,7 +99,6 @@ mesh_t_cone = copy.deepcopy(mesh_f_cone).transform(T_cone)
 
 mesh_f_cone.compute_vertex_normals()
 pcd_cone = mesh_f_cone.sample_points_poisson_disk(5000)
-pcd_cone_ = mesh_f_cone.sample_points_poisson_disk(5000)
 
 # pcd = mesh.sample_points_poisson_disk(5000)
 
@@ -258,6 +258,6 @@ for i in range(0,len(np.asarray(pcd_cone.points))):
 
 
 
-o3d.visualization.draw_geometries([pcd,pcd_cone_,pcd_cone,coordinate], mesh_show_wireframe=True, point_show_normal=True)
+o3d.visualization.draw_geometries([pcd,pcd_cone,coordinate], mesh_show_wireframe=True, point_show_normal=True)
 
 
